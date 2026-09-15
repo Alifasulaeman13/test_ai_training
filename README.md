@@ -1,65 +1,47 @@
-# YOLOv8 Fruit Detection & Classification (Wrapstation Test - Soal 1)
+# Soal 1: AI Training (Fruit Detection)
 
-Repositori ini berisi solusi saya untuk **Soal 1** dari tes teknis *Fullstack Developer Wrapstation*. Karena terdapat ambiguitas antara instruksi soal (meminta **Object Detection**) dan dataset Kaggle yang diberikan (dataset **Image Classification**), saya membuat **Dua Solusi (Opsi A & Opsi B)** untuk memastikan kedua skenario terjawab dengan sempurna menggunakan YOLOv8.
+Repositori ini berisi pengerjaan Soal 1 untuk posisi Full Stack Developer di Wrapstation.
 
-## Persyaratan Sistem
-- Python >= 3.8
-- `ultralytics`
-- `opencv-python`
-- `pandas` (hanya untuk Opsi B)
+Terdapat perbedaan antara instruksi tes (diminta *Object Detection* dengan *bounding box*) dan dataset Kaggle yang diberikan (dataset *Image Classification* tanpa *bounding box*). Oleh karena itu, saya menyediakan dua opsi script di repo ini agar keduanya tetap bisa diuji menggunakan YOLOv8.
 
-## 💻 Spesifikasi Sistem (Environment)
-Sesuai dengan *Submission Guidelines*, berikut adalah spesifikasi sistem yang digunakan selama pengerjaan tugas ini:
-- **OS:** Windows
-- **Prosesor:** Intel Core i7 Gen 14
-- **RAM:** 16 GB
-- **Storage:** SSD 512GB Gen4
+## System Specs
+- OS: Windows
+- CPU: Intel Core i7 Gen 14
+- RAM: 16 GB
+- Storage: SSD 512GB Gen4
 
-## Instalasi & Persiapan
-Silakan install *dependencies* yang dibutuhkan melalui pip:
+## Persiapan
+Install library yang dibutuhkan:
 ```bash
 pip install ultralytics opencv-python pandas
 ```
-*(Catatan: Jika Anda menggunakan Windows, gunakan `py -m pip install ...`)*
 
 ---
 
-## 🛠️ OPSI A: Object Detection (Sesuai Syarat Teks PDF)
-Opsi ini secara mutlak memenuhi instruksi PDF: *"Sistem Object Detection"* dan *"Gambar harus dilengkapi dengan anotasi deteksi (kotak/bounding box)"*.
-- **Script Training:** `train.py`
-- **Script Inference:** `inference.py`
+## Opsi 1: Object Detection (Sesuai Syarat PDF)
+Script ini dibuat murni untuk memenuhi instruksi soal yang meminta sistem *Object Detection* yang menampilkan *bounding box*.
 
-**Cara Menjalankan:**
+**Cara test:**
 ```bash
 python train.py
 python inference.py
 ```
-*(Catatan: YOLO Object Detection wajib menggunakan dataset berformat kotak koordinat `.txt`. Karena dataset Kaggle yang dilampirkan tidak memiliki file koordinat, eksekusi menggunakan dataset tersebut akan mengeluarkan peringatan `No labels found`. Namun secara logika programming, script ini sudah 100% siap produksi jika diberikan dataset YOLO yang tepat).*
+*Note: Karena dataset Kaggle yang dilampirkan berformat klasifikasi (tidak ada anotasi koordinat `.txt`), proses training di script ini akan memunculkan error `No labels found`. Secara code, logic deteksi dan rendering-nya sudah jalan dan tinggal dipakaikan dataset YOLO detection yang valid.*
 
 ---
 
-## 🛠️ OPSI B: Image Classification (Sesuai Dataset Kaggle)
-Opsi ini dibuat sebagai alternatif jika pihak penilai ternyata memang bermaksud membuat AI *Image Classification* dengan mengikuti dataset Kaggle yang dilampirkan (tidak menggunakan kotak *bounding box*). YOLOv8 mendukung mode ini via model `yolov8n-cls.pt`.
+## Opsi 2: Image Classification (Menyesuaikan Dataset Kaggle)
+Script alternatif ini saya buat menyesuaikan format asli dari dataset Kaggle yang dilampirkan di PDF (klasifikasi gambar tanpa *bounding box*).
 
-🔥 **Kabar Baik!** Anda tidak perlu melakukan training dari awal karena saya sudah menyertakan model *pre-trained* (`best.pt`) hasil training 10 *epoch*. Anda bisa **LANGSUNG menjalankan Langkah 3** di bawah ini untuk melihat hasilnya.
+Model hasil training klasifikasinya sudah saya sertakan di repo ini (`best.pt`), jadi **bisa langsung di-test tanpa harus training dari awal.**
 
-**Langkah 1: Siapkan Struktur Data (Opsional)**
-Dataset Kaggle berbentuk *flat* dengan file `_classes.csv`. Jalankan script ini agar dataset tersebut otomatis disusun ulang menjadi format folder kelas YOLO:
-```bash
-python prepare_classification_dataset.py
-```
-
-**Langkah 2: Melatih Model / Training (Opsional)**
-Latih model pengklasifikasi buah:
-```bash
-python train_cls.py
-```
-*Weights (bobot) terbaik akan tersimpan di folder `runs/classify/fruit_classification_model/weights/best.pt`.*
-
-**Langkah 3: Menjalankan Deteksi / Inference (LANGSUNG BISA DIJALANKAN)**
-Lihat hasil AI menebak buah (teks label tanpa kotak) menggunakan model yang sudah dilatih:
+**Cara melihat hasil klasifikasi (Bisa langsung di-run):**
 ```bash
 python inference_cls.py
 ```
-- Tekan **tombol apa saja** pada *keyboard* untuk melihat gambar selanjutnya.
-- Tekan tombol **q** untuk keluar dari *preview window*.
+- Tekan sembarang tombol untuk melihat gambar selanjutnya.
+- Tekan `q` untuk keluar dari window OpenCV.
+
+*(Opsional) Jika ingin mencoba proses training ulang dari awal:*
+1. Run `python prepare_classification_dataset.py` (untuk merapikan flat folder gambar ke dalam masing-masing class folder).
+2. Run `python train_cls.py` (untuk memulai proses training klasifikasi YOLO).
