@@ -3,7 +3,7 @@ import os
 
 # Path ke direktori dataset klasifikasi (sudah dipisah per folder)
 # Sesuai syarat: path direktori ditentukan dalam script
-DATASET_DIR = r"d:\project\test-ai-training\task1_ai_training\dataset_classification"
+DATASET_DIR = "dataset_classification"
 
 def main():
     print("Memulai proses training YOLOv8 Classification...")

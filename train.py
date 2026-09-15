@@ -3,8 +3,8 @@ import os
 
 # Tentukan path direktori gambar/dataset di dalam script
 # (Syarat: file path direktori gambar ditentukan dalam script, tidak perlu input terminal)
-# Gunakan absolute path ke file dataset.yaml
-DATASET_YAML_PATH = r"d:\project\test-ai-training\task1_ai_training\dataset.yaml"
+# Gunakan relative path ke file dataset.yaml
+DATASET_YAML_PATH = "dataset/data.yaml"
 
 def main():
     print("Memulai proses training YOLO...")

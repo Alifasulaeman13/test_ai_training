@@ -4,7 +4,7 @@ import pandas as pd
 
 def prepare_split(split_name):
     # Path dataset asli (Kaggle)
-    base_dir = r"d:\project\test-ai-training\Fruits by YOLO\Fruits by YOLO"
+    base_dir = "dataset"
     source_dir = os.path.join(base_dir, split_name)
     csv_file = os.path.join(source_dir, "_classes.csv")
     
@@ -13,7 +13,7 @@ def prepare_split(split_name):
         return
 
     # Path tujuan untuk dataset klasifikasi
-    target_dir = os.path.join(r"d:\project\test-ai-training\task1_ai_training\dataset_classification", split_name)
+    target_dir = os.path.join("dataset_classification", split_name)
     os.makedirs(target_dir, exist_ok=True)
 
     # Membaca CSV

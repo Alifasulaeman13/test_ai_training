@@ -5,7 +5,7 @@ import glob
 
 # Path ke direktori gambar untuk testing
 # (Sesuai syarat: path direktori gambar ditentukan di dalam script)
-TEST_IMAGES_DIR = r"d:\project\test-ai-training\Fruits by YOLO\Fruits by YOLO\test"
+TEST_IMAGES_DIR = "dataset/test"
 
 # Path ke model hasil training (Weights)
 MODEL_PATH = r"runs\detect\fruit_detection_model\weights\best.pt"

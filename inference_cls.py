@@ -4,7 +4,7 @@ import os
 import glob
 
 # Path ke direktori gambar untuk testing (bebas ambil dari mana saja yang ada .jpg-nya)
-TEST_IMAGES_DIR = r"d:\project\test-ai-training\Fruits by YOLO\Fruits by YOLO\test"
+TEST_IMAGES_DIR = "dataset/test"
 
 # Path ke model hasil training (Weights) klasifikasi
 MODEL_PATH = r"runs\classify\fruit_classification_model\weights\best.pt"
