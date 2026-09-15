@@ -8,6 +8,13 @@ Repositori ini berisi solusi saya untuk **Soal 1** dari tes teknis *Fullstack De
 - `opencv-python`
 - `pandas` (hanya untuk Opsi B)
 
+## 💻 Spesifikasi Sistem (Environment)
+Sesuai dengan *Submission Guidelines*, berikut adalah spesifikasi sistem yang digunakan selama pengerjaan tugas ini:
+- **OS:** Windows
+- **Prosesor:** Intel Core i7 Gen 14
+- **RAM:** 16 GB
+- **Storage:** SSD 512GB Gen4
+
 ## Instalasi & Persiapan
 Silakan install *dependencies* yang dibutuhkan melalui pip:
 ```bash
