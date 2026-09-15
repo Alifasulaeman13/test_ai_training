@@ -1,0 +1,18 @@
+# Ini adalah contoh konfigurasi dataset untuk YOLOv8.
+# Path harus disesuaikan dengan folder dataset yang sudah berformat YOLO (images dan labels).
+path: d:\project\test-ai-training\Fruits by YOLO\Fruits by YOLO
+train: train
+val: valid
+test: test
+
+# Classes
+names:
+  0: Apple
+  1: Banana
+  2: Grapes
+  3: Kiwi
+  4: Mango
+  5: Orange
+  6: Pineapple
+  7: Sugerapple
+  8: Watermelon
