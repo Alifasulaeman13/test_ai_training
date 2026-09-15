@@ -1,36 +1,37 @@
-# YOLOv8 Fruit Detection (Wrapstation Test - Task 1)
+# YOLOv8 Fruit Detection (Wrapstation Test - Soal 1)
 
-This repository contains my solution for Task 1 of the Wrapstation Fullstack Developer technical test. It implements a YOLOv8-based object detection model to identify and draw bounding boxes around fruits.
+Repositori ini berisi solusi saya untuk **Soal 1** dari tes teknis *Fullstack Developer Wrapstation*. Proyek ini mengimplementasikan model *Object Detection* berbasis **YOLOv8** untuk mendeteksi dan menggambar *bounding box* (kotak pembatas) di sekitar gambar buah.
 
-## Requirements
+## Persyaratan Sistem
 - Python >= 3.8
 - `ultralytics`
 - `opencv-python`
 
-## Setup & Installation
-Simply install the required dependencies via pip:
+## Instalasi & Persiapan
+Silakan install *dependencies* yang dibutuhkan melalui pip:
 ```bash
 pip install ultralytics opencv-python
 ```
-*(If you're on Windows and python is not recognized, use `py -m pip install ultralytics opencv-python`)*
+*(Catatan: Jika Anda menggunakan Windows dan perintah `python` tidak dikenali, gunakan `py -m pip install ultralytics opencv-python`)*
 
-## How to Use
+## Cara Penggunaan
 
-### 1. Training the Model
-To start the training process, run:
+### 1. Melatih Model (Training)
+Untuk memulai proses *training*, jalankan perintah berikut:
 ```bash
 python train.py
 ```
-The best weights will be saved automatically to `runs/detect/fruit_detection_model/weights/best.pt`.
+Setelah proses selesai, *weights* (bobot) terbaik akan otomatis tersimpan di dalam folder `runs/detect/fruit_detection_model/weights/best.pt`.
 
-**⚠️ Important Note Regarding the Dataset:** 
-The Kaggle dataset link provided in the test instructions points to a "Multi-Class Classification" dataset. Since it lacks `.txt` bounding box annotations, running the script with the provided dataset will result in a `No labels found` error from YOLO. The script is fully functional and will train successfully once a proper YOLO Object Detection formatted dataset is provided.
+**⚠️ Catatan Penting Mengenai Dataset:** 
+Link dataset Kaggle yang dilampirkan pada soal tes adalah dataset untuk *"Multi-Class Classification"*. Karena dataset tersebut tidak memiliki file anotasi `.txt` untuk letak *bounding box*, maka script akan menghasilkan error `No labels found` dari bawaan sistem YOLO jika dipaksakan berjalan menggunakan dataset tersebut.
+Namun, **script `train.py` ini sudah berfungsi sepenuhnya secara logika program** dan akan langsung memproses *training* dengan sukses jika menggunakan dataset yang berformat *YOLO Object Detection* dengan benar.
 
-### 2. Running Inference
-Once the model is trained (`best.pt` is generated), you can run inference to see the model in action:
+### 2. Menjalankan Deteksi (Inference)
+Setelah model berhasil dilatih (file `best.pt` terbentuk), Anda dapat menjalankan script inferensi untuk melihat hasil deteksi model:
 ```bash
 python inference.py
 ```
-This will open an OpenCV window displaying the detected fruits with their bounding boxes and confidence scores.
-- Press **any key** to skip to the next image.
-- Press **q** to exit the preview.
+Perintah ini akan memunculkan *pop-up window* OpenCV yang menampilkan gambar-gambar buah lengkap dengan *bounding box* dan skor keakuratannya (*confidence score*).
+- Tekan **tombol apa saja** pada *keyboard* untuk melihat gambar selanjutnya.
+- Tekan tombol **q** untuk keluar dari *preview*.
