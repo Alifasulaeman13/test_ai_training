@@ -41,21 +41,23 @@ python inference.py
 ## 🛠️ OPSI B: Image Classification (Sesuai Dataset Kaggle)
 Opsi ini dibuat sebagai alternatif jika pihak penilai ternyata memang bermaksud membuat AI *Image Classification* dengan mengikuti dataset Kaggle yang dilampirkan (tidak menggunakan kotak *bounding box*). YOLOv8 mendukung mode ini via model `yolov8n-cls.pt`.
 
-**Langkah 1: Siapkan Struktur Data**
+🔥 **Kabar Baik!** Anda tidak perlu melakukan training dari awal karena saya sudah menyertakan model *pre-trained* (`best.pt`) hasil training 10 *epoch*. Anda bisa **LANGSUNG menjalankan Langkah 3** di bawah ini untuk melihat hasilnya.
+
+**Langkah 1: Siapkan Struktur Data (Opsional)**
 Dataset Kaggle berbentuk *flat* dengan file `_classes.csv`. Jalankan script ini agar dataset tersebut otomatis disusun ulang menjadi format folder kelas YOLO:
 ```bash
 python prepare_classification_dataset.py
 ```
 
-**Langkah 2: Melatih Model (Training)**
+**Langkah 2: Melatih Model / Training (Opsional)**
 Latih model pengklasifikasi buah:
 ```bash
 python train_cls.py
 ```
 *Weights (bobot) terbaik akan tersimpan di folder `runs/classify/fruit_classification_model/weights/best.pt`.*
 
-**Langkah 3: Menjalankan Deteksi (Inference)**
-Lihat hasil AI menebak buah (teks label tanpa kotak):
+**Langkah 3: Menjalankan Deteksi / Inference (LANGSUNG BISA DIJALANKAN)**
+Lihat hasil AI menebak buah (teks label tanpa kotak) menggunakan model yang sudah dilatih:
 ```bash
 python inference_cls.py
 ```
